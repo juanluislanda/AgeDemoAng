@@ -1,0 +1,42 @@
+<form  [formGroup]="form" (ngSubmit)=saveDetalle()>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" formControlName="producto"  placeholder="Producto">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" formControlName="cantidad" placeholder="Cantidad">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" formControlName="monto" placeholder="Monto">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-text bg-white">
+                <i class="fas fa-calculator"></i>
+            </div>
+            <input type="text" class="form-control" formControlName="monto_total" placeholder="Total">
+        </div>
+    </div>
+    <table>
+        <tr><td>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" [disabled]="form.invalid" type="submit">
+            <i class="fas fa-database"></i>
+            Guardar</button>
+            </div>
+            </td><td>
+    <div class="form-group">
+            <button class="btn btn-danger btn-lg btn-block" [disabled]="form.invalid" type="reset">
+                <i class="far fa-window-close"></i>
+                Cancelar</button>
+    </div>
+    </td></tr></table>
+    </form>
+    
+    
+

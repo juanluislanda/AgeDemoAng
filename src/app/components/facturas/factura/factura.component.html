@@ -1,0 +1,77 @@
+<form [formGroup]="form" (ngSubmit)=saveFactura()>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" formControlName="nombre"  placeholder="Nombre">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" formControlName="nit" placeholder="Nit">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <input type="text" class="form-control" formControlName="correlativo" placeholder="Correlativo">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+            </div>
+            <input type="text" class="form-control" formControlName="fecha" placeholder="dd/mm/yyyy">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-calculator"></i>
+                </div>
+            </div>
+            <input type="text"   class="form-control; text-right" formControlName="monto"  placeholder="TOTAL">
+        </div>
+    </div> 
+    <div>
+    <table class="table table=sm">
+        <tr><th>Producto</th>
+            <th>Cantidad</th>
+            <th>monto</th>
+            <th>monto total</th>
+            <th colspan="2">Acciones</th>
+        </tr>
+        <tr *ngFor="let det of detalleService.list">            
+            <td>{{ det.producto }}</td>
+            <td>{{ det.cantidad }}</td>
+            <td>{{ det.monto }}</td>
+            <td>{{ det.monto_total }}</td>
+            <td>            
+                <i class="fas fa-pencil-alt fa-lg text-info" (click)="editDetalle( det )" style="cursor: pointer;"></i>
+            </td>
+            <td>
+                <i class="fas fa-trash fa-lg text-danger" (click)="deleteDetalle( det )" style="cursor: pointer;"></i>
+            </td>
+
+        
+        </tr>
+    
+    </table>
+</div>
+<table>
+    <tr><td>
+<div class="form-group">
+    <button class="btn btn-success btn-lg btn-block" [disabled]="form.invalid" type="submit">
+        <i class="fas fa-database"></i>
+        Guardar</button>
+        </div>
+        </td><td>
+<div class="form-group">
+        <button class="btn btn-danger btn-lg btn-block" [disabled]="form.invalid" type="reset">
+            <i class="far fa-window-close"></i>
+            Cancelar</button>
+</div>
+</td></tr></table>
+
+</form>

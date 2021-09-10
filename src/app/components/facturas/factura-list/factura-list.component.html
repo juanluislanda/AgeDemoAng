@@ -1,0 +1,17 @@
+<table class="table table=sm">
+    <tr *ngFor="let fact of facturaService.list">
+        <td>{{ fact.nombre }}</td>
+        <td>{{ fact.nit }}</td>
+        <td>{{ fact.fecha }}</td>
+        <td>{{ fact.correlativo }}</td>
+        <td><h6 style="text-align: right "> {{fact.monto}}</h6></td>
+        <td>            
+            <i class="fas fa-pencil-alt fa-lg text-info" (click)="editFactura( fact )" style="cursor: pointer;"></i>
+        </td>
+        <td>
+            <i class="fas fa-trash fa-lg text-danger" (click)="deleteFactura( fact )" style="cursor: pointer;"></i>
+        </td>
+    </tr>
+
+</table>
+ 
